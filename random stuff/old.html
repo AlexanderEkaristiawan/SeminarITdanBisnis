@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SEMINAR IT DAN BISNIS | Full Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #2c3e2f;
+            overflow-x: hidden;
+        }
+
+        /* ========== HEADER STYLES (Sticky) ========== */
+        .site-header {
+            background-color: rgba(240, 240, 240, 0.95);
+            backdrop-filter: blur(3px);
+            color: rgb(0, 34, 129);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgb(0, 34, 129);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            border-bottom-color: rgb(0, 68, 255);
+            color: rgb(0, 68, 255);
+            transform: translateY(-1px);
+        }
+
+        /* ========== MAIN CONTENT - FULL PAGE SECTIONS ========== */
+        .main-content {
+            width: 100%;
+        }
+
+        /* Each section takes 100vh (full viewport height) */
+        .full-section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            scroll-snap-align: start;
+        }
+
+        /* Smooth snapping */
+        .main-content {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar for better UX */
+        .main-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .main-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .main-content::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        /* ========== SECTION 1: HERO / HOME (redefined as first full section) ========== */
+        .section-home {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), 
+                        url('pexels-francesco-ungaro-281260.jpg') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 5rem;
+        }
+
+        .left-logo-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .logo-image-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .logo-image {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-placeholder {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .logo-placeholder span {
+            font-size: 4rem;
+        }
+
+        .logo-image-container h2 {
+            color: rgb(0, 34, 129);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .right-button-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .button-wrapper {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 1.2rem 2.8rem;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+
+        .hero-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 18px 28px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ========== SECTION 2: ABOUT (Full page) ========== */
+        .section-about-full {
+            background: linear-gradient(125deg, #f0f7ff 0%, #e9eef5 100%);
+            padding: 4rem 2rem;
+        }
+
+        .about-full-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: rgb(0, 34, 129);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+
+        .about-grid-full {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-main-text {
+            flex: 2;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+
+        .about-highlight-card {
+            flex: 1;
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlight-list li {
+            padding: 0.8rem 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* ========== SECTION 3: SPEAKERS / EXPERTS (Full page) ========== */
+        .section-speakers {
+            background: linear-gradient(145deg, #1e2a3a 0%, #0f1722 100%);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .speakers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .speakers-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .speaker-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 32px;
+            padding: 2rem 1.8rem;
+            text-align: center;
+            width: 260px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .speaker-icon {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+        }
+
+        .speaker-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .speaker-title {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .speaker-bio {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            opacity: 0.8;
+        }
+
+        /* ========== SECTION 4: REGISTRATION / TICKETS (Full page) ========== */
+        .section-register {
+            background: linear-gradient(115deg, #fff5e6 0%, #ffe6d5 100%);
+            padding: 4rem 2rem;
+        }
+
+        .register-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            background: white;
+            border-radius: 48px;
+            padding: 3rem;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.25);
+        }
+
+        .pricing-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2.5rem 0;
+        }
+
+        .price-card {
+            flex: 1;
+            min-width: 250px;
+            background: #f9fafc;
+            border-radius: 32px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .price-card.featured {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #ffffff, #f3f0ff);
+            transform: scale(1.02);
+        }
+
+        .price-card h3 {
+            font-size: 1.8rem;
+            color: #1e293b;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+
+        .register-btn-sm {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: 0.2s;
+            width: 100%;
+        }
+
+        .register-btn-sm:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        /* ========== FLOATING WHATSAPP FAB ========== */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background-color: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease;
+            z-index: 1001;
+            text-decoration: none;
+        }
+
+        .whatsapp-fab:hover {
+            transform: scale(1.08);
+            background-color: #20b859;
+        }
+
+        .wa-emoji {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background-color: rgba(240, 240, 240, 0.95);
+            backdrop-filter: blur(3px);
+            color: rgb(0, 34, 129);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgb(0, 34, 129);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .section-home {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 2rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .register-container {
+                padding: 1.5rem;
+            }
+            .price-card {
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+            .speaker-card {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo">
+            <h1>SEMINAR IT DAN BISNIS</h1>
+            <p>Technology as the Key to Business and SME Success in the Digital Era</p>
+        </div>
+        <nav class="nav-links" id="nav-links">
+            <a href="#" data-section="section-home" class="active">Home</a>
+            <a href="#" data-section="section-about">About</a>
+            <a href="#" data-section="section-speakers">Speakers</a>
+            <a href="#" data-section="section-register">Register</a>
+            <a href="#" data-section="section-contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content" id="main-content">
+    <!-- SECTION 1: HOME (FULL PAGE) -->
+    <section id="section-home" class="full-section section-home">
+        <div class="left-logo-section">
+            <div class="logo-image-container">
+                <div class="logo-placeholder">
+                    <span>💻</span>
+                </div>
+                <h2>SEMINAR IT & BISNIS</h2>
+                <p>Technology as the Key to Business Success</p>
+            </div>
+        </div>
+        <div class="right-button-section">
+            <div class="button-wrapper">
+                <button class="hero-btn" id="exploreMainBtn">JOIN NOW ✅</button>
+                <p>Limited seats available! Register today to secure your spot.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT (FULL PAGE - new) -->
+    <section id="section-about" class="full-section section-about-full">
+        <div class="about-full-container">
+            <h2 class="section-title">About The Seminar</h2>
+            <div class="about-grid-full">
+                <div class="about-main-text">
+                    <p style="font-size:1.2rem; font-weight:500;">🚀 Empowering Businesses Through Technology Innovation</p>
+                    <p>Join us for an exclusive seminar that bridges the gap between information technology and business success. In today's digital era, small and medium enterprises (SMEs) must leverage technology to stay competitive and thrive. This seminar brings together industry experts, successful entrepreneurs, and IT professionals to share insights, strategies, and practical solutions.</p>
+                    <br/>
+                    <p>💡 <strong>What You'll Learn:</strong> Digital transformation strategies, AI implementation for SMEs, cybersecurity best practices, and how to leverage cloud technology for business growth.<br/>
+                    🎯 <strong>Who Should Attend:</strong> Business owners, entrepreneurs, IT professionals, students, and anyone interested in digital business innovation.<br/>
+                    🌟 <strong>Key Benefits:</strong> Networking opportunities, hands-on workshops, expert panels, and exclusive resources.</p>
+                </div>
+                <div class="about-highlight-card">
+                    <h3 style="color: rgb(0, 34, 129); margin-bottom: 1.5rem;">✨ Event Highlights</h3>
+                    <ul class="highlight-list">
+                        <li>🎤 10+ Industry Speakers</li>
+                        <li>🤝 Networking Sessions</li>
+                        <li>💻 Hands-on Workshops</li>
+                        <li>🏆 Certificate of Participation</li>
+                        <li>📱 Digital Resource Kit</li>
+                        <li>🍽️ Exclusive Networking Lunch</li>
+                    </ul>
+                    <div style="margin-top: 2rem; background: #eef2ff; border-radius: 28px; padding: 1rem; text-align: center;">
+                        <p><strong>🗓️ Date:</strong> 15-16 November 2025</p>
+                        <p><strong>📍 Venue:</strong> Jakarta Convention Center</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: SPEAKERS & EXPERTS (FULL PAGE - brand new) -->
+    <section id="section-speakers" class="full-section section-speakers">
+        <div class="speakers-container">
+            <h2 class="section-title" style="color: white;">Meet Our Experts</h2>
+            <p style="text-align: center; max-width: 700px; margin: 1rem auto 0; opacity: 0.9;">Inspiring leaders from top tech companies and successful entrepreneurs sharing actionable insights.</p>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-icon">👩‍💻</div>
+                    <div class="speaker-name">Dr. Amelia Wijaya</div>
+                    <div class="speaker-title">AI Research Lead, Google</div>
+                    <div class="speaker-bio">Pioneering AI adoption for SMEs, author of "Digital Leapfrog".</div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-icon">👨‍💼</div>
+                    <div class="speaker-name">Rizky Hidayat</div>
+                    <div class="speaker-title">CEO, TechBiz Indonesia</div>
+                    <div class="speaker-bio">Serial entrepreneur who scaled his startup using cloud solutions.</div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-icon">📊</div>
+                    <div class="speaker-name">Sinta Dewi, MBA</div>
+                    <div class="speaker-title">Digital Transformation Expert</div>
+                    <div class="speaker-bio">15+ years in business strategy & innovation consulting.</div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-icon">🔐</div>
+                    <div class="speaker-name">Budi Santoso</div>
+                    <div class="speaker-title">Cybersecurity Specialist</div>
+                    <div class="speaker-bio">Top speaker on data protection & risk management for enterprises.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: REGISTRATION / TICKET PRICING (FULL PAGE - new) -->
+    <section id="section-register" class="full-section section-register">
+        <div class="register-container">
+            <h2 class="section-title" style="margin-bottom: 0.5rem;">Secure Your Seat</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #4b5563;">Choose the ticket that fits your needs. Early bird ends soon!</p>
+            <div class="pricing-cards">
+                <div class="price-card">
+                    <h3>Early Bird</h3>
+                    <div class="price">$79</div>
+                    <p>Full 2-day access + e-certificate</p>
+                    <p>📘 Digital handbook</p>
+                    <button class="register-btn-sm register-cta">Register Now</button>
+                </div>
+                <div class="price-card featured">
+                    <h3>VIP Pass</h3>
+                    <div class="price">$149</div>
+                    <p>Front row seat + exclusive workshop</p>
+                    <p>🎁 Premium swag bag + lunch</p>
+                    <button class="register-btn-sm register-cta">Get VIP</button>
+                </div>
+                <div class="price-card">
+                    <h3>Group Bundle</h3>
+                    <div class="price">$59<span style="font-size:1rem;">/pax</span></div>
+                    <p>Min 3 persons, corporate discount</p>
+                    <p>🤝 Team networking benefits</p>
+                    <button class="register-btn-sm register-cta">Inquire Now</button>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem;">* All prices include 11% tax & service. Limited slots available.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CONTACT (FULL PAGE - enhanced) -->
+    <section id="section-contact" class="full-section" style="background: linear-gradient(145deg, #f1f5f9, #e2e8f0); padding: 3rem 2rem;">
+        <div class="page-wrapper" style="max-width: 1100px; margin: 0 auto; background: rgba(255,255,255,0.95); border-radius: 48px; padding: 2.5rem; width: 100%;">
+            <h2 class="section-title" style="margin-bottom: 1rem;">Contact Us</h2>
+            <div class="page-sub" style="text-align: center; margin-bottom: 2rem;">Have questions? We're here to help!</div>
+            <div class="contact-info" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
+                <div class="contact-card" style="background: #fefae0; padding: 1.5rem; border-radius: 28px; flex: 1; text-align: center;">
+                    <div style="font-size: 2rem;">📍</div>
+                    <h3>Venue Location</h3>
+                    <p>Jakarta Convention Center<br/>Jl. Gatot Subroto No. 1<br/>Jakarta, Indonesia</p>
+                </div>
+                <div class="contact-card" style="background: #fefae0; padding: 1.5rem; border-radius: 28px; flex: 1; text-align: center;">
+                    <div style="font-size: 2rem;">📞</div>
+                    <h3>Call Us</h3>
+                    <p>+62 812 3456 7890<br/>Mon-Fri 9am–6pm</p>
+                </div>
+                <div class="contact-card" style="background: #fefae0; padding: 1.5rem; border-radius: 28px; flex: 1; text-align: center;">
+                    <div style="font-size: 2rem;">✉️</div>
+                    <h3>Email</h3>
+                    <p>info@seminarbisnis.com</p>
+                </div>
+            </div>
+            <div class="contact-form" style="background: #ffffffdb; padding: 2rem; border-radius: 32px;">
+                <h3 style="margin-bottom: 1rem; color: rgb(0, 34, 129);">Send us a Message 📧</h3>
+                <form id="globalContactForm">
+                    <div class="form-group" style="margin-bottom: 1.2rem;">
+                        <label>Full Name</label>
+                        <input type="text" id="contactName" placeholder="Your name" required style="width:100%; padding:0.8rem; border-radius:40px; border:1px solid #ccc;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.2rem;">
+                        <label>Email Address</label>
+                        <input type="email" id="contactEmail" placeholder="hello@example.com" required style="width:100%; padding:0.8rem; border-radius:40px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.2rem;">
+                        <label>Message</label>
+                        <textarea id="contactMsg" rows="4" placeholder="Your inquiry..." style="width:100%; padding:0.8rem; border-radius:28px;"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" style="background: linear-gradient(135deg, #667eea, #764ba2); padding:0.8rem 2rem; border-radius:40px; color:white; border:none; font-weight:bold; cursor:pointer;">Send Message ✉️</button>
+                    <p id="contactFeedback" style="margin-top: 1rem;"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Floating WhatsApp FAB -->
+<a href="https://wa.me/6281234567890?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20the%20seminar" 
+   class="whatsapp-fab" target="_blank" rel="noopener noreferrer">
+   <span class="wa-emoji">💬</span>
+</a>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>© 2025 SEMINAR IT DAN BISNIS | Innovate. Adapt. Grow in the digital age</p>
+        <div class="footer-links">
+            <a href="#" data-section="section-home">Home</a>
+            <a href="#" data-section="section-about">About</a>
+            <a href="#" data-section="section-speakers">Speakers</a>
+            <a href="#" data-section="section-register">Register</a>
+            <a href="#" data-section="section-contact">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll to section function
+    const scrollToSection = (sectionId) => {
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            const mainScrollContainer = document.getElementById('main-content');
+            const offsetTop = targetSection.offsetTop;
+            mainScrollContainer.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    // Update active nav based on visible section (intersection observer)
+    const setupActiveObserver = () => {
+        const sections = document.querySelectorAll('.full-section');
+        const navLinks = document.querySelectorAll('.nav-links a, .footer-links a');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.getAttribute('id');
+                    if (activeId) {
+                        navLinks.forEach(link => {
+                            const targetSection = link.getAttribute('data-section');
+                            if (targetSection === activeId) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.5, root: document.getElementById('main-content') });
+        
+        sections.forEach(section => observer.observe(section));
+    };
+
+    // Navigation initialization
+    const initFullNav = () => {
+        const allNavTriggers = document.querySelectorAll('[data-section]');
+        allNavTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = trigger.getAttribute('data-section');
+                if (sectionId) {
+                    scrollToSection(sectionId);
+                }
+            });
+        });
+        
+        // Main hero button and register buttons redirection
+        const mainBtn = document.getElementById('exploreMainBtn');
+        if (mainBtn) {
+            mainBtn.addEventListener('click', () => {
+                if (confirm("Ready to join the seminar? Click OK to register!")) {
+                    window.open('https://wa.me/6281234567890?text=I%20want%20to%20register%20for%20the%20seminar', '_blank');
+                } else {
+                    scrollToSection('section-register');
+                }
+            });
+        }
+        
+        // All register CTA buttons (pricing cards)
+        const allRegBtns = document.querySelectorAll('.register-cta');
+        allRegBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open('https://wa.me/6281234567890?text=Hi%2C%20I%20want%20to%20register%20for%20the%20seminar%20ticket', '_blank');
+            });
+        });
+        
+        // Contact form handling
+        const contactForm = document.getElementById('globalContactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('contactName')?.value;
+                const email = document.getElementById('contactEmail')?.value;
+                const msg = document.getElementById('contactMsg')?.value;
+                const feedback = document.getElementById('contactFeedback');
+                if (!name || !email || !msg) {
+                    if(feedback) feedback.innerHTML = '⚠️ Please fill all fields.';
+                    return;
+                }
+                if(!email.includes('@')) {
+                    if(feedback) feedback.innerHTML = '📧 Please enter valid email.';
+                    return;
+                }
+                if(feedback) {
+                    feedback.innerHTML = `✅ Thanks ${name}! We'll get back to you within 24 hours.`;
+                    feedback.style.color = '#2c6e3c';
+                }
+                contactForm.reset();
+                setTimeout(() => { if(feedback) feedback.innerHTML = ''; }, 3500);
+            });
+        }
+        
+        setupActiveObserver();
+        
+        // If there is a hash on load, scroll to that section
+        if(window.location.hash) {
+            const hashSection = window.location.hash.substring(1);
+            const targetElem = document.getElementById(hashSection);
+            if(targetElem) setTimeout(() => scrollToSection(hashSection), 100);
+        }
+    };
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        initFullNav();
+        // Ensure main-content scroll container works
+        const mainScroll = document.getElementById('main-content');
+        if(mainScroll) {
+            mainScroll.style.scrollSnapType = 'y mandatory';
+            mainScroll.style.overflowY = 'scroll';
+            mainScroll.style.height = '100vh';
+        }
+    });
+</script>
+</body>
+</html>

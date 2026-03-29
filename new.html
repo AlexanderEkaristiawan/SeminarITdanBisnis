@@ -1,0 +1,1034 @@
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>SEMINAR IT & BISNIS | DUAL DEGREE INTERNATIONAL</title>
+    
+    <!-- Bootstrap & Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+    <style>
+      /* --- Custom Styles with FULL Mobile Responsiveness --- */
+      * {
+        box-sizing: border-box;
+      }
+      
+      body { 
+        overflow-x: hidden;
+        font-size: 16px;
+      }
+      
+      /* Reveal animation base */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.3s ease;
+      }
+
+      .zoom {
+        transform: scale(1.2);
+        transition: transform 1.5s ease-out;
+      }
+
+      .zoom.active {
+        transform: scale(1);
+      }
+
+      /* Hero header - centered + fully responsive */
+      header {
+        position: relative;
+        height: 100vh;
+        min-height: 550px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+      }
+
+      .background-image {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+      }
+
+      .greeting {
+        position: relative;
+        z-index: 2;
+        color: white;
+        text-align: center;
+        width: 100%;
+        padding: 0 20px;
+      }
+      
+      .greeting-content {
+        display: inline-block;
+        text-align: center;
+        max-width: 90%;
+        margin: 0 auto;
+        width: 100%;
+      }
+      
+      /* Responsive Logo */
+      .hero-logo {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      /* Navbar Mobile Friendly */
+      .navbar {
+        transition: all 0.4s ease;
+        padding: 15px 20px;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        background: transparent;
+      }
+      
+      .navbar-toggler {
+        border: none;
+        background: rgba(0,0,0,0.5);
+        padding: 8px 12px;
+        border-radius: 6px;
+      }
+      
+      .navbar-toggler-icon i {
+        color: white;
+        font-size: 1.5rem;
+      }
+      
+      .navbar.scrolled .navbar-toggler-icon i {
+        color: #0193dc;
+      }
+      
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        padding: 10px 20px;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      }
+      
+      .navbar.scrolled .nav-link { 
+        color: #333 !important; 
+      }
+      
+      .navbar.scrolled .navbar-brand { 
+        color: #0193dc !important; 
+      }
+      
+      .nav-link { 
+        color: #fff !important; 
+        font-weight: 500;
+        padding: 8px 15px !important;
+        transition: all 0.3s;
+      }
+      
+      .navbar-nav {
+        background: transparent;
+      }
+      
+      .navbar.scrolled .navbar-nav {
+        background: transparent;
+      }
+      
+      /* Mobile menu background */
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          background: rgba(0,0,0,0.9);
+          border-radius: 12px;
+          margin-top: 15px;
+          padding: 15px;
+        }
+        .navbar.scrolled .navbar-collapse {
+          background: rgba(255,255,255,0.98);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .navbar.scrolled .nav-link {
+          color: #0193dc !important;
+        }
+        .nav-link {
+          text-align: center;
+          padding: 12px !important;
+        }
+      }
+
+      /* Portfolio responsive grid */
+      .portfolio-item {
+        position: relative;
+        overflow: hidden;
+      }
+      .portfolio-item img {
+        transition: transform 0.5s ease;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .portfolio-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .section { 
+        padding: 60px 0; 
+      }
+      
+      /* Full Screen Sections - Mobile adapted */
+      .fullscreen-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 60px 0;
+      }
+      
+      @media (max-width: 768px) {
+        .fullscreen-section {
+          min-height: auto;
+          padding: 60px 0;
+        }
+        .section {
+          padding: 40px 0;
+        }
+        .display-4 {
+          font-size: 2rem;
+        }
+        .display-3 {
+          font-size: 2.2rem;
+        }
+      }
+      
+      .section-content {
+        position: relative;
+        z-index: 2;
+        padding: 1rem;
+      }
+      
+      /* BENEFITS CARDS */
+      .benefits-card {
+        background: white;
+        border-radius: 20px;
+        padding: 1.8rem 1.2rem;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        height: 100%;
+        cursor: default;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .benefits-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #f7971e, #ffd200);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+      
+      .benefits-card:hover::before {
+        transform: scaleX(1);
+      }
+      
+      .benefits-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+      }
+      
+      .benefit-icon {
+        font-size: 3rem;
+        background: linear-gradient(135deg, #0193dc, #4facfe);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1.2rem;
+        display: inline-block;
+      }
+      
+      .benefits-card h4 {
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        color: #1e2a3e;
+        font-size: 1.4rem;
+      }
+      
+      .benefits-card p {
+        color: #5a6e7c;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0;
+      }
+      
+      .benefits-card.highlight {
+        background: linear-gradient(135deg, #fff, #fff9e8);
+        border: 1px solid rgba(247, 151, 30, 0.3);
+      }
+      
+      /* 5 cards responsive layout */
+      .benefits-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .benefit-col {
+        flex: 0 0 auto;
+        width: 100%;
+        padding: 10px;
+      }
+      @media (min-width: 576px) {
+        .benefit-col {
+          width: 50%;
+        }
+      }
+      @media (min-width: 992px) {
+        .benefit-col {
+          width: 20%;
+        }
+      }
+      
+      /* EVENT DETAILS CARD */
+      .event-card {
+        background: rgba(255,255,255,0.98);
+        border-radius: 30px;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        backdrop-filter: blur(2px);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .event-detail-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 0.8rem;
+        background: #f8f9fa;
+        border-radius: 20px;
+        transition: all 0.3s;
+      }
+      
+      .event-detail-item:hover {
+        transform: translateX(8px);
+        background: #e9ecef;
+      }
+      
+      .event-icon {
+        width: 55px;
+        height: 55px;
+        background: linear-gradient(135deg, #0193dc, #4facfe);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.6rem;
+        flex-shrink: 0;
+      }
+      
+      .event-text {
+        flex: 1;
+      }
+      
+      .event-text h5 {
+        margin: 0;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #0193dc;
+        font-weight: 700;
+      }
+      
+      .event-text p {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1e2a3e;
+      }
+      
+      .badge-event {
+        background: #f7971e;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 40px;
+        display: inline-block;
+        font-weight: bold;
+      }
+      
+      @media (max-width: 576px) {
+        .event-detail-item {
+          padding: 0.6rem;
+        }
+        .event-icon {
+          width: 45px;
+          height: 45px;
+          font-size: 1.3rem;
+        }
+        .event-text p {
+          font-size: 0.9rem;
+        }
+      }
+      
+      /* SPEAKERS SECTION */
+      .speakers-section {
+        background: linear-gradient(135deg, #1a2980, #26d0ce);
+      }
+      
+      .speaker-card {
+        background: white;
+        border-radius: 25px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.4s;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        height: 100%;
+      }
+      
+      .speaker-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+      }
+      
+      .speaker-img-placeholder {
+        width: 180px;
+        height: 180px;
+        background: linear-gradient(145deg, #e0e0e0, #f5f5f5);
+        border-radius: 50%;
+        margin: 0 auto 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+      
+      .speaker-img-placeholder i {
+        font-size: 5rem;
+        color: #0193dc;
+        opacity: 0.7;
+      }
+      
+      .speaker-card h4 {
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        color: #1e2a3e;
+      }
+      
+      .speaker-card p {
+        color: #0193dc;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+      
+      @media (max-width: 768px) {
+        .speaker-img-placeholder {
+          width: 140px;
+          height: 140px;
+        }
+        .speaker-img-placeholder i {
+          font-size: 3.5rem;
+        }
+      }
+      
+      /* Counter Boxes */
+      .counter-box {
+        background: rgba(255,255,255,0.95);
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        margin: 0.75rem 0;
+      }
+      
+      .counter-number {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #0193dc;
+      }
+      
+      @media (min-width: 768px) {
+        .counter-number {
+          font-size: 3rem;
+        }
+      }
+      
+      /* FOOTER STYLES */
+      .footer {
+        background: #0a1929;
+        color: #e0e0e0;
+        padding: 3rem 0 1rem 0;
+        position: relative;
+      }
+      
+      .footer a {
+        color: #4facfe;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+      
+      .footer a:hover {
+        color: #0193dc;
+        text-decoration: underline;
+      }
+      
+      .footer .social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+        margin: 0 8px;
+        transition: all 0.3s;
+        color: white;
+      }
+      
+      .footer .social-icon:hover {
+        background: #0193dc;
+        transform: translateY(-3px);
+        color: white;
+      }
+      
+      .footer h5 {
+        color: white;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      .footer h5:after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: #0193dc;
+      }
+      
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 1.5rem;
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+      
+      .contact-info p {
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .contact-info i {
+        width: 25px;
+        color: #0193dc;
+      }
+      
+      /* FLOATING ACTION BUTTON (WhatsApp) - BOTTOM RIGHT CORNER, ALWAYS ON TOP */
+      .fab-wa {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        background-color: #25D366;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        color: white;
+        font-size: 2rem;
+        text-decoration: none;
+      }
+      
+      .fab-wa:hover {
+        transform: scale(1.1);
+        background-color: #128C7E;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Optional pulse animation for attention */
+      @keyframes pulse-wa {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+      
+      .fab-wa {
+        animation: pulse-wa 1.5s infinite;
+      }
+      
+      .fab-wa:hover {
+        animation: none;
+      }
+      
+      @media (max-width: 576px) {
+        .fab-wa {
+          width: 50px;
+          height: 50px;
+          font-size: 1.6rem;
+          bottom: 20px;
+          right: 20px;
+        }
+      }
+      
+      .btn-primary {
+        background-color: #0193dc;
+        border-color: #0193dc;
+        transition: all 0.3s;
+      }
+      
+      .btn-primary:hover {
+        background-color: #0175b0;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(1,147,220,0.3);
+      }
+      
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      
+      @media (max-width: 576px) {
+        .portfolio .row.no-gutters {
+          margin: 0;
+        }
+        .portfolio-item {
+          margin-bottom: 2px;
+        }
+        .counter-box {
+          padding: 1rem;
+        }
+        .counter-number {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <a href="#" class="navbar-brand" style="color: #0193dc; font-weight: bold; font-size: 1.6rem;">SINAR BALI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="#" class="nav-link" data-nav="beranda">Beranda</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-nav="about">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" data-nav="event">Event</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- WhatsApp Floating Action Button (Bottom Right Corner, Highest z-index) -->
+      <a href="https://wa.me/6281234567890?text=Halo%20Sinar%20Bali%2C%20saya%20tertarik%20dengan%20acara%20Build%20For%20Future" 
+         class="fab-wa" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+
+      <main>
+        <!-- Hero Section -->
+        <header>
+          <div class="background-image zoom" style="background-image: url('testing.png');"></div>
+          <div class="container greeting">
+            <div class="greeting-content reveal">
+                <img src="1.png" alt="Logo Sinar Bali" class="hero-logo" style="width: 500px; max-width: 85%;">
+                <h1 class="display-3 font-weight-bold mt-3">Selamat Datang!</h1>
+                <button class="btn btn-primary btn-lg mt-4 px-4 py-2">Register Now</button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Welcome Section -->
+        <section class="welcome section container">
+          <div class="row align-items-center">
+            <div class="col-md-6 reveal">
+               <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow" alt="Construction">
+            </div>
+            <div class="col-md-6 reveal">
+              <div class="pl-md-4">
+                <h6 class="text-primary font-weight-bold">TENTANG KAMI</h6>
+                <h2 class="mb-3">PT. Sinarbali Binakarya</h2>
+                <p class="mb-4">Kami merupakan perusahaan swasta yang bergerak di bidang kontraktor dan manufaktur dengan visi menjadi perusahaan konstruksi terbaik di Indonesia.</p>
+                <a href="#" class="btn btn-primary px-4">Selengkapnya</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio reveal">
+          <div class="row no-gutters">
+            <div class="col-6 col-md-3 portfolio-item">
+              <img src="https://images.unsplash.com/photo-1590486803833-ffc9171e73e2?auto=format&fit=crop&w=400&q=80" class="w-100" alt="Portfolio 1"/>
+            </div>
+            <div class="col-6 col-md-3 portfolio-item">
+              <img src="https://images.unsplash.com/photo-1581094128527-450c48d6a8de?auto=format&fit=crop&w=400&q=80" class="w-100" alt="Portfolio 2"/>
+            </div>
+            <div class="col-6 col-md-3 portfolio-item">
+              <img src="https://images.unsplash.com/photo-1541975097412-5044847136ed?auto=format&fit=crop&w=400&q=80" class="w-100" alt="Portfolio 3"/>
+            </div>
+            <div class="col-6 col-md-3 portfolio-item">
+              <img src="https://images.unsplash.com/photo-153183436193b-013c582af0f6?auto=format&fit=crop&w=400&q=80" class="w-100" alt="Portfolio 4"/>
+            </div>
+          </div>
+        </section>
+
+        <!-- BENEFITS SECTION -->
+        <section class="fullscreen-section" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+          <div class="container section-content">
+            <div class="text-center text-white mb-5 reveal">
+              <h2 class="display-4 font-weight-bold">✨ Event Benefits ✨</h2>
+              <p class="lead px-2">Ikuti acara kami dan dapatkan keuntungan eksklusif untuk Anda!</p>
+            </div>
+            <div class="benefits-grid">
+              <div class="benefit-col reveal">
+                <div class="benefits-card highlight">
+                  <div class="benefit-icon"><i class="fas fa-trophy"></i></div>
+                  <h4>Cash Prize Pool</h4>
+                  <p>Total hadiah uang tunai menarik untuk para pemenang.</p>
+                </div>
+              </div>
+              <div class="benefit-col reveal">
+                <div class="benefits-card">
+                  <div class="benefit-icon"><i class="fas fa-hotel"></i></div>
+                  <h4>Door Prize Hotel Voucher</h4>
+                  <p>Menginap 1 malam gratis di hotel berbintang.</p>
+                </div>
+              </div>
+              <div class="benefit-col reveal">
+                <div class="benefits-card">
+                  <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+                  <h4>Online Certificate</h4>
+                  <p>Sertifikat digital resmi sebagai bukti partisipasi.</p>
+                </div>
+              </div>
+              <div class="benefit-col reveal">
+                <div class="benefits-card">
+                  <div class="benefit-icon"><i class="fas fa-utensils"></i></div>
+                  <h4>Snack Box</h4>
+                  <p>Kudapan lezat & bergizi yang akan menemani acara Anda.</p>
+                </div>
+              </div>
+              <div class="benefit-col reveal">
+                <div class="benefits-card">
+                  <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                  <h4>Knowledge</h4>
+                  <p>Wawasan berharga & materi eksklusif dari para ahli.</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-5 reveal">
+              <a href="#" class="btn btn-light btn-lg px-5" style="color: #0193dc; font-weight: bold;">Daftar Sekarang →</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="fullscreen-section" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+          <div class="container section-content">
+            <div class="text-center text-white mb-4 mb-md-5 reveal">
+              <h2 class="display-4 font-weight-bold">Pencapaian Kami</h2>
+              <p class="lead">Angka yang berbicara tentang dedikasi dan kepercayaan</p>
+            </div>
+            <div class="row">
+              <div class="col-6 col-md-3 reveal">
+                <div class="counter-box">
+                  <div class="counter-number" data-count="1500">0</div>
+                  <p class="mb-0">Proyek Selesai</p>
+                  <i class="fas fa-check-circle text-primary mt-2"></i>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 reveal">
+                <div class="counter-box">
+                  <div class="counter-number" data-count="98">0</div>
+                  <p class="mb-0">Kepuasan Klien (%)</p>
+                  <i class="fas fa-smile text-primary mt-2"></i>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 reveal">
+                <div class="counter-box">
+                  <div class="counter-number" data-count="25">0</div>
+                  <p class="mb-0">Tahun Pengalaman</p>
+                  <i class="fas fa-calendar-alt text-primary mt-2"></i>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 reveal">
+                <div class="counter-box">
+                  <div class="counter-number" data-count="500">0</div>
+                  <p class="mb-0">Tenaga Ahli</p>
+                  <i class="fas fa-users text-primary mt-2"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EVENT DETAILS SECTION -->
+        <section class="fullscreen-section" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+          <div class="container section-content">
+            <div class="text-center text-white mb-5 reveal">
+              <h2 class="display-4 font-weight-bold">📅 Detail Acara</h2>
+              <p class="lead">Bergabunglah dan raih kesempatan emas!</p>
+            </div>
+            <div class="event-card reveal">
+              <div class="event-detail-item">
+                <div class="event-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="event-text">
+                  <h5>HARI & TANGGAL</h5>
+                  <p>Thursday, 9 April 2026</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <div class="event-icon"><i class="fas fa-clock"></i></div>
+                <div class="event-text">
+                  <h5>WAKTU</h5>
+                  <p>08.00 - 11.30 WITA</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <div class="event-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="event-text">
+                  <h5>LOKASI</h5>
+                  <p>Ruang Aula SMK TI BALI GLOBAL Jimbaran</p>
+                </div>
+              </div>
+              <div class="event-detail-item">
+                <div class="event-icon"><i class="fas fa-user-graduate"></i></div>
+                <div class="event-text">
+                  <h5>PESERTA</h5>
+                  <p>Available for SMK TI Students</p>
+                </div>
+              </div>
+              <div class="text-center mt-4">
+                <span class="badge-event"><i class="fas fa-ticket-alt mr-2"></i> Pendaftaran Terbatas!</span>
+              </div>
+            </div>
+            <div class="text-center mt-5 reveal">
+              <a href="#" class="btn btn-dark btn-lg px-5" style="background:#1e2a3e; border-radius: 50px;"><i class="fas fa-registered mr-2"></i> Daftar Sekarang</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- SPEAKERS SECTION -->
+        <section class="fullscreen-section speakers-section">
+          <div class="container section-content">
+            <div class="text-center text-white mb-5 reveal">
+              <h2 class="display-4 font-weight-bold">🎤 Speakers</h2>
+              <p class="lead">Belajar langsung dari para ahli dan profesional berpengalaman</p>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-5 col-lg-4 mb-4 reveal">
+                <div class="speaker-card">
+                  <div class="speaker-img-placeholder">
+                    <i class="fas fa-user-circle"></i>
+                  </div>
+                  <h4>I Gede Putra, S.T., M.T.</h4>
+                  <p>Expert in Construction & Digital Innovation</p>
+                  <small class="text-muted">CEO Sinar Bali Group</small>
+                </div>
+              </div>
+              <div class="col-md-5 col-lg-4 mb-4 reveal">
+                <div class="speaker-card">
+                  <div class="speaker-img-placeholder">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                  </div>
+                  <h4>Ni Luh Ayu W., S.Kom., M.M.</h4>
+                  <p>Technology & Education Specialist</p>
+                  <small class="text-muted">Lead Trainer SMK TI Bali Global</small>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-4 reveal">
+              <p class="text-white"><i class="fas fa-microphone-alt mr-2"></i> Akan ada sesi tanya jawab eksklusif bersama para speakers!</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- FOOTER SECTION -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <h5>Tentang Kami</h5>
+              <p>PT. Sinarbali Binakarya adalah perusahaan kontraktor dan manufaktur terpercaya di Bali, berkomitmen menghadirkan konstruksi berkualitas dan inovasi terbaik.</p>
+              <div class="mt-3">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <h5>Kontak Kami</h5>
+              <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Uluwatu No. 88, Jimbaran, Bali</p>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+623611234567">+62 361 123 4567</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@sinarbali.co.id">info@sinarbali.co.id</a></p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <h5>Jam Operasional</h5>
+              <p><i class="fas fa-clock"></i> Senin - Jumat: 08.00 - 17.00 WITA</p>
+              <p><i class="fas fa-clock"></i> Sabtu: 08.00 - 13.00 WITA</p>
+              <p><i class="fas fa-calendar-week"></i> Minggu & Hari Libur: Tutup</p>
+              <div class="mt-3">
+                <a href="#" class="btn btn-outline-light btn-sm rounded-pill px-3"><i class="fas fa-envelope"></i> Newsletter</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2025 PT. Sinarbali Binakarya. All Rights Reserved. | Build For Future Event</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          if ($(this).scrollTop() > 50) {
+            $('.navbar').addClass('scrolled');
+          } else {
+            $('.navbar').removeClass('scrolled');
+          }
+        });
+        
+        gsap.to(".zoom", {
+          scale: 1,
+          duration: 0.8,
+          ease: "power2.out"
+        });
+        
+        $(".reveal").each(function(i, el) {
+          gsap.to(el, {
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out"
+          });
+        });
+        
+        gsap.from(".portfolio-item", {
+            scrollTrigger: {
+                trigger: ".portfolio",
+                start: "top 80%"
+            },
+            scale: 0.85,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "back.out(1.5)"
+        });
+        
+        function animateCounter(element, target) {
+          let current = 0;
+          const steps = 60;
+          const increment = target / steps;
+          let step = 0;
+          const timer = setInterval(() => {
+            step++;
+            current += increment;
+            if (step >= steps) {
+              element.textContent = target;
+              clearInterval(timer);
+            } else {
+              element.textContent = Math.floor(current);
+            }
+          }, 25);
+        }
+        
+        const counterSection = document.querySelector('.fullscreen-section:nth-of-type(3)');
+        let countersTriggered = false;
+        const observerOptions = { threshold: 0.3 };
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !countersTriggered) {
+              countersTriggered = true;
+              const counters = document.querySelectorAll('.counter-number');
+              counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                animateCounter(counter, target);
+              });
+            }
+          });
+        }, observerOptions);
+        if (counterSection) observer.observe(counterSection);
+        
+        $('.nav-link').on('click', function(e) {
+          e.preventDefault();
+          const targetPage = $(this).attr('data-nav');
+          let targetOffset = 0;
+          if (targetPage === 'beranda') {
+            targetOffset = 0;
+          } else if (targetPage === 'about') {
+            const aboutSec = $('.welcome');
+            if (aboutSec.length) targetOffset = aboutSec.offset().top - 70;
+          } else if (targetPage === 'event') {
+            const eventSec = $('.fullscreen-section:nth-of-type(4)');
+            if (eventSec.length) targetOffset = eventSec.offset().top - 70;
+          }
+          $('html, body').animate({ scrollTop: targetOffset }, 700);
+          $('.navbar-collapse').collapse('hide');
+        });
+        
+        $(".reveal").each(function() {
+          if (!$(this).hasClass('gsap-processed')) {
+            $(this).css('opacity', '0').css('transform', 'translateY(30px)');
+          }
+        });
+        
+        gsap.fromTo(".greeting-content", 
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.9, delay: 0.4, ease: "power2.out" }
+        );
+      });
+    </script>
+  </body>
+</html>
